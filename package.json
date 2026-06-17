@@ -1,0 +1,26 @@
+{
+  "name": "whos-that-pokemon",
+  "packageManager": "yarn@4.14.1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CyberAsec1/whos-that-pokemon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CyberAsec1/whos-that-pokemon/issues"
+  },
+  "homepage": "https://github.com/CyberAsec1/whos-that-pokemon#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "node-fetch": "^3.3.2"
+  }
+}
