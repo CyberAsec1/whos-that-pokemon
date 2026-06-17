@@ -5,12 +5,12 @@ const PORT = 3000;
 
 app.use(express.json());
 
-// 🏠 Home route
-app.get("/get", (req, res) => {
+// HOME ROUTE
+app.get("/", (req, res) => {
   res.send("Who's That Pokémon API is running!");
 });
 
-// 🎮 Random Pokémon
+// 🎮 RANDOM POKÉMON ROUTE
 app.get("/api/pokemon/random", async (req, res) => {
   try {
     const id = Math.floor(Math.random() * 151) + 1;
@@ -18,33 +18,46 @@ app.get("/api/pokemon/random", async (req, res) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const data = await response.json();
 
-    res.json({
-      id: data.id,
-      image: data.sprites.front_default
-      // name is hidden for the game
-    });
+    const pokemon = {
+      // Send the ID so the frontend knows which Pokemon to validate against later
+      id: data.id, 
+      image: data.sprites.front_default,
+    };
 
+    res.json(pokemon);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch Pokémon" });
   }
 });
 
-// 🧠 Check answer route
-app.get("/api/pokemon/check", (req, res) => {
-  const { guess, answer } = req.query;
+// 🎯 GUESS POKÉMON ROUTE
+app.post("/api/pokemon/guess", async (req, res) => {
+  try {
+    const { id, guess } = req.body;
 
-  if (!guess || !answer) {
-    return res.status(400).json({ error: "Missing data" });
+    // Validate that the request has the required data
+    if (!id || !guess) {
+      return res.status(400).json({ error: "Missing id or guess in request body" });
+    }
+
+    // Fetch the correct answer from PokeAPI using the ID
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await response.json();
+    
+    const correctName = data.name.toLowerCase();
+    const userGuess = guess.trim().toLowerCase();
+
+    // Compare the names
+    if (userGuess === correctName) {
+      res.json({ correct: true, message: `Correct! It is ${data.name}.` });
+    } else {
+      res.json({ correct: false, message: "Wrong answer! Try again." });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Failed to validate guess" });
   }
-
-  const isCorrect = guess.toLowerCase() === answer.toLowerCase();
-
-  res.json({
-    correct: isCorrect
-  });
 });
 
-// 🚀 Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
