@@ -19,10 +19,10 @@ app.get("/api/pokemon/random", async (req, res) => {
     const data = await response.json();
 
     res.json({
-      id: data.id,
-      image: data.sprites.front_default
-      // name is hidden for the game
-    });
+  id: data.id,
+  name: data.name,   // ADD THIS
+  image: data.sprites.front_default
+});
 
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch Pokémon" });
