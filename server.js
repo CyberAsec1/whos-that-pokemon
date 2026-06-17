@@ -6,7 +6,7 @@ const PORT = 3000;
 app.use(express.json());
 
 // 🏠 Home route
-app.get("/", (req, res) => {
+app.get("/get", (req, res) => {
   res.send("Who's That Pokémon API is running!");
 });
 
