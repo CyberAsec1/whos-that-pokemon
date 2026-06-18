@@ -1,0 +1,23 @@
+body {
+  background: #0d1117;
+  color: white;
+}
+
+button {
+  background: #00ffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#pokemonImage,
+img {
+  filter: drop-shadow(0 16px 48px rgba(255, 255, 255, 0.35));
+  box-shadow: 0 28px 68px rgba(255, 255, 255, 0.18);
+}

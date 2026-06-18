@@ -1,62 +1,116 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
   min-height: 100vh;
   margin: 0;
-  padding: 10px;
+  padding: 24px;
+  color: #f4fbff;
+  background: #040b18;
+  position: relative;
+  overflow-x: hidden;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 28%),
+              radial-gradient(circle at 22% 40%, rgba(0, 210, 255, 0.16), transparent 18%),
+              radial-gradient(circle at 78% 30%, rgba(0, 180, 255, 0.14), transparent 16%),
+              radial-gradient(circle at 65% 75%, rgba(2, 139, 255, 0.14), transparent 20%),
+              radial-gradient(circle at 25% 80%, rgba(4, 246, 255, 0.12), transparent 20%),
+              linear-gradient(180deg, rgba(9, 18, 43, 0.98), rgba(4, 8, 20, 0.95));
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px, 120px 120px;
+  opacity: 0.28;
+  pointer-events: none;
 }
 
 .container {
-  margin-top: 10px;
-  padding: 10px;
+  width: min(100%, 440px);
+  margin: 0 auto;
+  padding: 32px;
+  background: rgba(4, 11, 25, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
 }
 
+#pokemonImage,
 img {
-  width: 350px;
-  height: 350px;
+  width: min(100%, 340px);
+  height: auto;
+  max-height: 360px;
   object-fit: contain;
-  margin: 0px auto 5px auto;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-  transition: filter 0.6s ease;
+  display: block;
+  margin: 0 auto 18px;
+  filter: drop-shadow(0 16px 48px rgba(255, 255, 255, 0.35));
+  box-shadow: 0 28px 68px rgba(255, 255, 255, 0.18);
+  transition: filter 0.5s ease, box-shadow 0.5s ease;
 }
 
 input {
-  padding: 8px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  width: 200px;
+  width: calc(100% - 24px);
+  max-width: 300px;
+  padding: 12px 14px;
+  margin: 0 auto 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f4fbff;
+  outline: none;
+}
+
+input::placeholder {
+  color: rgba(244, 251, 255, 0.6);
 }
 
 button {
-  padding: 8px 12px;
-  margin: 3px 5px;
+  padding: 12px 18px;
+  margin: 6px 6px 0;
   cursor: pointer;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #15b8ff 0%, #7de2ff 100%);
+  color: #031425;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0, 145, 255, 0.2);
 }
 
 #hints {
-  margin-top: 8px;
-  background: white;
-  padding: 10px;
-  border-radius: 5px;
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 16px;
+  border-radius: 18px;
   text-align: left;
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 h1 {
-  margin: 0 0 3px 0;
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 h2, h3 {
-  margin: 3px 0;
+  margin: 10px 0;
 }
