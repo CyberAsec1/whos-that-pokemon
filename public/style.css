@@ -4,8 +4,8 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 24px;
-  color: #f4fbff;
-  background: #040b18;
+  color: #072912;
+  background: #e8f7ee;
   position: relative;
   overflow-x: hidden;
 }
@@ -16,11 +16,11 @@ body::before {
   inset: 0;
   z-index: -2;
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 28%),
-              radial-gradient(circle at 22% 40%, rgba(0, 210, 255, 0.16), transparent 18%),
-              radial-gradient(circle at 78% 30%, rgba(0, 180, 255, 0.14), transparent 16%),
-              radial-gradient(circle at 65% 75%, rgba(2, 139, 255, 0.14), transparent 20%),
-              radial-gradient(circle at 25% 80%, rgba(4, 246, 255, 0.12), transparent 20%),
-              linear-gradient(180deg, rgba(9, 18, 43, 0.98), rgba(4, 8, 20, 0.95));
+              radial-gradient(circle at 22% 40%, rgba(120, 220, 150, 0.16), transparent 18%),
+              radial-gradient(circle at 78% 30%, rgba(100, 200, 140, 0.14), transparent 16%),
+              radial-gradient(circle at 65% 75%, rgba(80, 180, 120, 0.14), transparent 20%),
+              radial-gradient(circle at 25% 80%, rgba(120, 240, 160, 0.12), transparent 20%),
+              linear-gradient(180deg, rgba(232, 247, 238, 0.98), rgba(230, 250, 240, 0.95));
 }
 
 body::after {
@@ -40,11 +40,11 @@ body::after {
   width: min(100%, 440px);
   margin: 0 auto;
   padding: 32px;
-  background: rgba(4, 11, 25, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(235, 255, 238, 0.85);
+  border: 1px solid rgba(3, 58, 22, 0.08);
   border-radius: 28px;
-  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(12px);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 #pokemonImage,
@@ -82,15 +82,15 @@ button {
   cursor: pointer;
   border: none;
   border-radius: 14px;
-  background: linear-gradient(135deg, #15b8ff 0%, #7de2ff 100%);
-  color: #031425;
+  background: linear-gradient(135deg, #43a047 0%, #a5d6a7 100%);
+  color: #072912;
   font-weight: 700;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(0, 145, 255, 0.2);
+  box-shadow: 0 14px 28px rgba(67, 160, 71, 0.18);
 }
 
 #hints {
