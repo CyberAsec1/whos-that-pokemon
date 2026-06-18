@@ -1,0 +1,62 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
+  margin: 0;
+  padding: 10px;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+img {
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+  margin: 0px auto 5px auto;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  transition: filter 0.6s ease;
+}
+
+input {
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  width: 200px;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 3px 5px;
+  cursor: pointer;
+}
+
+#hints {
+  margin-top: 8px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  margin: 0 0 3px 0;
+}
+
+h2, h3 {
+  margin: 3px 0;
+}

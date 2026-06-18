@@ -13,12 +13,16 @@
 
     <img id="pokemonImage" src="" alt="pokemon" />
 
-    <input id="guessInput" placeholder="Enter Pokémon name" />
-
-    <button onclick="checkGuess()">Guess</button>
+    <button onclick="getHint()">Get Hint</button>
     <button onclick="loadPokemon()">New Pokémon</button>
+    <button onclick="giveUp()" style="background-color: #ff6b6b;">Give Up</button>
 
+    <input id="guessInput" placeholder="Enter Pokémon name" />
+    <button onclick="checkGuess()">Guess</button>
+
+    <h3 id="guessCount">Wrong guesses: 0/3</h3>
     <h2 id="result"></h2>
+    <pre id="hints"></pre>
   </div>
 
   <script src="script.js"></script>
